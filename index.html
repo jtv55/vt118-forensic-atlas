@@ -109,71 +109,117 @@
       padding-right: clamp(1.25rem, 4vw, 2.5rem);
     }
 
-    /* Sticky Top Navigation */
+    /* Sticky Top Navigation (Compact, Non-Scrolling, All Pages Visible) */
     header.top {
       position: sticky;
       top: 0;
       z-index: 40;
-      background: color-mix(in srgb, var(--surface) 92%, transparent);
+      background: color-mix(in srgb, var(--surface) 95%, transparent);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--rule);
     }
     header.top .wrap {
       display: flex;
-      gap: 1rem;
+      flex-wrap: wrap;
+      gap: 0.45rem 0.75rem;
       align-items: center;
-      padding-block: 0.7rem;
-      overflow-x: auto;
-      scrollbar-width: none;
+      justify-content: space-between;
+      padding-block: 0.55rem;
     }
     .brand {
-      font: 700 1.15rem/1 var(--f-display);
+      font: 700 1.05rem/1 var(--f-display);
       letter-spacing: 0.04em;
       text-transform: uppercase;
       white-space: nowrap;
       color: var(--ink);
-      margin-right: 0.5rem;
     }
     .brand span { color: var(--accent); }
     nav.tabs {
       display: flex;
-      gap: 0.25rem;
-      margin-left: auto;
+      flex-wrap: wrap;
+      gap: 0.3rem;
       align-items: center;
     }
     .tab-btn {
-      font: 500 0.86rem/1 var(--f-body);
+      font: 600 0.78rem/1.15 var(--f-body);
       color: var(--ink-2);
-      background: transparent;
-      border: none;
-      padding: 0.55rem 0.75rem;
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      padding: 0.42rem 0.62rem;
       border-radius: 5px;
       white-space: nowrap;
       cursor: pointer;
-      transition: background 0.15s, color 0.15s;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
     }
     .tab-btn:hover {
       background: var(--surface-2);
       color: var(--ink);
+      border-color: var(--ink-2);
     }
     .tab-btn.active {
-      color: var(--ink);
-      font-weight: 600;
-      background: var(--surface-2);
-      box-shadow: inset 0 -2.5px 0 var(--amber);
+      color: var(--bg);
+      background: var(--ink);
+      border-color: var(--ink);
+      box-shadow: 0 2px 0 var(--amber);
     }
     .theme-btn {
-      font: 500 0.8rem/1 var(--f-mono);
+      font: 600 0.74rem/1.1 var(--f-mono);
       background: var(--surface-2);
       color: var(--ink-2);
       border: 1px solid var(--rule);
-      padding: 0.48rem 0.65rem;
+      padding: 0.42rem 0.58rem;
       border-radius: 5px;
       cursor: pointer;
       white-space: nowrap;
-      margin-left: 0.4rem;
     }
     .theme-btn:hover { color: var(--ink); border-color: var(--ink-2); }
+
+    /* Event Timeline List (for Snowmobile / Smuggling & Inquiries) */
+    .ev-list {
+      display: grid;
+      gap: 0;
+    }
+    .ev-row {
+      display: grid;
+      grid-template-columns: 10.5rem minmax(0, 1fr);
+      gap: 1.25rem;
+      padding: 1rem 0.25rem;
+      border-top: 1px solid var(--rule);
+      align-items: start;
+    }
+    .ev-row:first-child { border-top: none; padding-top: 0.25rem; }
+    .ev-row.local-hl {
+      border-left: 3px solid var(--amber);
+      padding-left: 0.85rem;
+      background: color-mix(in srgb, var(--amber-soft) 25%, transparent);
+    }
+    .ev-meta {
+      display: grid;
+      gap: 0.25rem;
+    }
+    .ev-date {
+      font: 600 0.82rem/1.3 var(--f-mono);
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+    }
+    .ev-place {
+      font: 500 0.82rem/1.35 var(--f-body);
+      color: var(--muted);
+    }
+    .ev-body h4 {
+      font: 600 1.04rem/1.32 var(--f-body);
+      color: var(--ink);
+      margin: 0 0 0.35rem 0;
+    }
+    .ev-body p {
+      font: 400 0.95rem/1.64 var(--f-body);
+      color: var(--ink-2);
+      margin: 0;
+      max-width: 50rem;
+    }
+    @media (max-width: 640px) {
+      .ev-row { grid-template-columns: 1fr; gap: 0.35rem; }
+    }
 
     /* Typography */
     h1, h2, h3, h4 {
@@ -517,20 +563,20 @@
 <body>
 
   <!-- ===================================================================== -->
-  <!-- STICKY EDITORIAL HEADER                                               -->
+  <!-- STICKY EDITORIAL HEADER (Compact, Non-Scrolling, All 6 Pages Visible) -->
   <!-- ===================================================================== -->
   <header class="top">
     <div class="wrap">
-      <div class="brand">Maitland <span>Forensic Atlas</span></div>
+      <div class="brand">Maitland <span>Atlas</span></div>
       <nav class="tabs" aria-label="Primary sections">
-        <button id="nav-btn-1" class="tab-btn active" onclick="showPage(1)">1. The Silver Civic &amp; Forums</button>
-        <button id="nav-btn-2" class="tab-btn" onclick="showPage(2)">2. Snowmobile Trails &amp; Lowell Drop</button>
-        <button id="nav-btn-3" class="tab-btn" onclick="showPage(3)">3. Jay Peak &amp; "Andrea" Jacket</button>
-        <button id="nav-btn-4" class="tab-btn" onclick="showPage(4)">4. Degrees of Separation</button>
-        <button id="nav-btn-5" class="tab-btn" onclick="showPage(5)">5. The Visual Vault</button>
-        <button id="nav-btn-6" class="tab-btn" onclick="showPage(6)">6. Connecting the Dots</button>
+        <button id="nav-btn-1" class="tab-btn active" onclick="showPage(1)">1 · Silver Civic</button>
+        <button id="nav-btn-2" class="tab-btn" onclick="showPage(2)">2 · Snowmobile &amp; Lowell</button>
+        <button id="nav-btn-3" class="tab-btn" onclick="showPage(3)">3 · Jay Peak &amp; "Andrea"</button>
+        <button id="nav-btn-4" class="tab-btn" onclick="showPage(4)">4 · Separation Graph</button>
+        <button id="nav-btn-5" class="tab-btn" onclick="showPage(5)">5 · Visual Vault</button>
+        <button id="nav-btn-6" class="tab-btn" onclick="showPage(6)">6 · Connecting the Dots</button>
       </nav>
-      <button id="theme-toggle" class="theme-btn" onclick="toggleTheme()" title="Switch between snow-light paper and spruce-dark night mode">☾ Night mode</button>
+      <button id="theme-toggle" class="theme-btn" onclick="toggleTheme()" title="Switch between snow-light paper and spruce-dark night mode">☾ Night</button>
     </div>
   </header>
 
@@ -850,9 +896,15 @@
             </div>
           </div>
 
-          <div class="card scroll-x">
-            <h3>Documented 2002–2006 border smuggling &amp; Franklin County drug cases</h3>
-            <div id="p2-smuggling-list"></div>
+          <div class="card">
+            <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.75rem;padding-bottom:.75rem;border-bottom:1px solid var(--rule)">
+              <h3 style="margin:0">Documented 2002–2006 border smuggling &amp; Franklin County drug cases</h3>
+              <div class="chips" style="margin:0">
+                <button id="p2-chip-local" class="chip active" onclick="filterP2Events('local')">Snowmobile &amp; local corridor cases</button>
+                <button id="p2-chip-all" class="chip" onclick="filterP2Events('all')">All 35 documented cases</button>
+              </div>
+            </div>
+            <div id="p2-smuggling-list" class="ev-list"></div>
           </div>
         </div>
       </section>
@@ -1579,7 +1631,7 @@
       const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       root.setAttribute('data-theme', next);
       const btn = document.getElementById('theme-toggle');
-      if (btn) btn.textContent = next === 'dark' ? '☀ Day paper' : '☾ Night mode';
+      if (btn) btn.textContent = next === 'dark' ? '☀ Day' : '☾ Night';
       if (BUNDLE) {
         initPage1Visuals();
         initPage2Visuals();
@@ -1913,36 +1965,41 @@
       if (p2Map) p2Map.flyTo(ll, z, { duration: 0.9 });
     }
 
+    function filterP2Events(mode) {
+      if (!BUNDLE || !BUNDLE.drg) return;
+      ['local', 'all'].forEach(k => {
+        const b = document.getElementById('p2-chip-' + k);
+        if (b) b.classList.toggle('active', k === mode);
+      });
+      const listEl = document.getElementById('p2-smuggling-list');
+      if (!listEl) return;
+      const allItems = BUNDLE.drg.items || [];
+      const items = mode === 'all'
+        ? allItems
+        : allItems.filter(it => it.local || String(it.detail).toLowerCase().includes('snowmobile') || String(it.detail).toLowerCase().includes('helicopter') || String(it.place).toLowerCase().includes('richford') || String(it.place).toLowerCase().includes('enosburg') || String(it.place).toLowerCase().includes('montgomery') || String(it.place).toLowerCase().includes('lowell'));
+
+      listEl.innerHTML = items.map(it => {
+        const isSnowOrLocal = it.local || String(it.detail).toLowerCase().includes('snowmobile') || String(it.detail).toLowerCase().includes('helicopter');
+        return `
+          <div class="ev-row ${isSnowOrLocal ? 'local-hl' : ''}">
+            <div class="ev-meta">
+              <div class="ev-date">${esc(it.date)}</div>
+              <div class="ev-place">${esc(it.place)}</div>
+            </div>
+            <div class="ev-body">
+              <h4>${esc(it.label)}</h4>
+              <p>${esc(it.detail)}</p>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
     function initPage2Visuals() {
       if (!BUNDLE || !BUNDLE.drg) return;
       const ink = css('--ink'), muted = css('--muted'), rule = css('--rule'), amber = css('--amber'), s1 = css('--s1');
 
-      const listEl = document.getElementById('p2-smuggling-list');
-      if (listEl) {
-        const items = BUNDLE.drg.items || [];
-        listEl.innerHTML = `
-          <table class="t">
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Place</th>
-                <th>Documented Case / Incident</th>
-                <th>Details &amp; Primary Source</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${items.map(it => `
-                <tr>
-                  <td class="mono" style="white-space:nowrap">${esc(it.date)}</td>
-                  <td style="white-space:nowrap"><strong>${esc(it.place)}</strong></td>
-                  <td><strong>${esc(it.label)}</strong></td>
-                  <td>${esc(it.detail)}</td>
-                </tr>
-              `).join('')}
-            </tbody>
-          </table>
-        `;
-      }
+      filterP2Events('local');
 
       const svgE = d3.select('#p2-ecstasy-svg');
       svgE.selectAll('*').remove();
@@ -2164,31 +2221,25 @@
         `).join('');
       }
 
-      // Inquiries Table
+      // Inquiries List (Clean 2-Column Editorial Rows)
       const inqEl = document.getElementById('p4-inquiries-table');
       if (inqEl) {
-        inqEl.innerHTML = `
-          <table class="t">
-            <thead>
-              <tr>
-                <th>Investigated Track / Person</th>
-                <th>Category</th>
-                <th>Status</th>
-                <th>Official Clearance Basis &amp; Notes</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${inquiries.map(inq => `
-                <tr>
-                  <td><strong>${esc(inq.label)}</strong></td>
-                  <td class="mono">${esc(inq.category)}</td>
-                  <td class="mono" style="color:${inq.status.includes('cleared') || inq.status.includes('ruled_out') ? 'var(--good)' : 'var(--crit)'}"><strong>${esc(inq.status.toUpperCase())}</strong></td>
-                  <td><strong>Basis:</strong> ${esc(inq.official_clearance_basis || 'See VSP record')}<br/>${esc(inq.notes)}</td>
-                </tr>
-              `).join('')}
-            </tbody>
-          </table>
-        `;
+        inqEl.className = 'ev-list';
+        inqEl.innerHTML = inquiries.map(inq => {
+          const isCleared = inq.status.includes('cleared') || inq.status.includes('ruled_out');
+          return `
+            <div class="ev-row ${!isCleared ? 'local-hl' : ''}">
+              <div class="ev-meta">
+                <div class="ev-date" style="color:${isCleared ? 'var(--good)' : 'var(--crit)'}">${esc(inq.status.toUpperCase())}</div>
+                <div class="ev-place mono">${esc(inq.category)}</div>
+              </div>
+              <div class="ev-body">
+                <h4>${esc(inq.label)}</h4>
+                <p><strong>Official basis:</strong> ${esc(inq.official_clearance_basis || 'See VSP record')} — ${esc(inq.notes)}</p>
+              </div>
+            </div>
+          `;
+        }).join('');
       }
     }
 
