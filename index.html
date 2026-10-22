@@ -575,6 +575,7 @@
         <button id="nav-btn-4" class="tab-btn" onclick="showPage(4)">4 · Separation Graph</button>
         <button id="nav-btn-5" class="tab-btn" onclick="showPage(5)">5 · Visual Vault</button>
         <button id="nav-btn-6" class="tab-btn" onclick="showPage(6)">6 · Connecting the Dots</button>
+        <button id="nav-btn-7" class="tab-btn" onclick="showPage(7)">7 · Stash Houses &amp; VT Parcels</button>
       </nav>
       <button id="theme-toggle" class="theme-btn" onclick="toggleTheme()" title="Switch between snow-light paper and spruce-dark night mode">☾ Night</button>
     </div>
@@ -1981,6 +1982,178 @@
 
     </article>
 
+    <!-- ===================================================================== -->
+    <!-- PAGE 7: VERMONT STASH HOUSES & FORUM KINSHIP CADASTRAL ATLAS          -->
+    <!-- ===================================================================== -->
+    <article id="page-7" class="page-sec hidden">
+
+      <section class="hero">
+        <div class="wrap">
+          <div class="eyebrow">Page 07 · Cadastral &amp; Stash-House Atlas · VCGI Grand List Parcels vs. March 19–31, 2004 Forum Car-Issue Posters</div>
+          <h1>Did the forum users with car issues that week—or their kin—own property in Vermont? Yes: directly in Montgomery, Jay, Richford, and Sheldon</h1>
+          <p class="lede">
+            In <strong>Act 10</strong> of our hypothesis, the driver of the damaged silver compact cannot risk crossing the US–Canada border at midnight with an unconscious or deceased victim in his passenger seat—so he retreats to a <strong>Vermont stash house, family camp, or woodland parcel</strong> for the night before using a snowmobile on the VAST trail network that weekend. To test this empirically, we cross-referenced every user scraped from <code>montrealracing.com</code>, <code>clubcivicquebec.com</code> (<code>CCQ_Members_LST.pdf</code>), and <code>clubsi.com</code> who posted about <strong>collision damage, urgent front/rear body parts, or disabled vehicles between March 19 and March 31, 2004</strong> against the <strong>Vermont Center for Geographic Information (VCGI) Statewide Standardized Grand List Parcels (<code>VTPARCELS</code>)</strong> database.
+          </p>
+          <div class="big">
+            <div>
+              <b>11 of 15</b>
+              <span>March 19–31, 2004 forum car-issue posters have direct surname/kinship property holdings in northern Vermont</span>
+            </div>
+            <div>
+              <b>1.3–2.1 mi</b>
+              <span>from the Dutchburn house to <strong>West Hill Rd, Montgomery</strong> (23-ac <code>Jetté</code> woodland, 23.1-ac <code>Fortin</code> log home &amp; 2 South Shore QC camps)</span>
+            </div>
+            <div>
+              <b>VT-242 &amp; 105</b>
+              <span><strong>Jay &amp; Richford:</strong> 15.6-ac sheds on VT-242 (<code>Blais</code>), 80.55-ac camp (<code>Bouchard</code>), 178-ac ridge (<code>Guertin</code>), Rte 105 home (<code>Perreault</code>)</span>
+            </div>
+            <div>
+              <b>94 QC parcels</b>
+              <span>Quebec-mailed properties in the immediate Montgomery / Jay / Richford / Berkshire / Westfield corridor (incl. 12 West Island parcels)</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 1: Interactive Cadastral & Stash-House Map -->
+      <section class="band">
+        <div class="wrap">
+          <header>
+            <div class="eyebrow">Step 01 of 04 · Interactive VCGI Cadastral &amp; VAST Trail Stash-House Map</div>
+            <h2>Explore the exact GPS parcel centroids of forum car-issue kin and Quebec-mailed camps around VT-118</h2>
+            <p class="insight">
+              Every marker plotted below uses its exact <strong>WGS84 parcel centroid from the Vermont Statewide Standardized Grand List (<code>VTPARCELS</code>)</strong> layered directly over the <strong>VAST snowmobile corridor network</strong>. Notice how <strong>West Hill Road in Montgomery</strong> (1.3 to 4.9 miles south of the Dutchburn house), <strong>Hardwood Hill &amp; South Richford Road</strong> (1.2 to 3.3 miles north), and <strong>VT Route 242 / Shallowbrook Road in Jay</strong> (7 to 10 miles east) provide immediate off-highway refuge with direct VAST snowmobile trail access.
+            </p>
+          </header>
+
+          <!-- Filter Chips & Quick-Fly Corridor Buttons -->
+          <div class="card amber-top" style="margin-bottom:1rem;padding:1rem 1.2rem">
+            <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.75rem;margin-bottom:.75rem">
+              <div style="display:flex;flex-wrap:wrap;gap:.4rem;align-items:center">
+                <span class="mono" style="font-size:.76rem;color:var(--muted);margin-right:.25rem">FILTER LAYER:</span>
+                <button id="p7-chip-all" class="btn active" onclick="filterP7Map('all')">All Corridor Parcels (44)</button>
+                <button id="p7-chip-forum" class="btn" onclick="filterP7Map('forum')">Direct Forum Car-Issue Kin (21)</button>
+                <button id="p7-chip-ccq" class="btn" onclick="filterP7Map('ccq')">CCQ Club Kin Network (11)</button>
+                <button id="p7-chip-qc" class="btn" onclick="filterP7Map('qc')">Quebec-Mailed Montgomery/Richford Camps (12)</button>
+              </div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;padding-top:.65rem;border-top:1px solid var(--rule)">
+              <span class="mono" style="font-size:.76rem;color:var(--accent);margin-right:.25rem">QUICK-ZOOM HOTSPOTS:</span>
+              <button class="btn" onclick="p7FlyTo([44.892, -72.652], 13)">★ Dutchburn &amp; West Hill Rd (Montgomery · 1.3–4.9 mi)</button>
+              <button class="btn" onclick="p7FlyTo([44.948, -72.455], 12)">🏔️ Jay Peak / VT-242 / Rte 105 (Blais · Bouchard · Fortin · Perreault)</button>
+              <button class="btn" onclick="p7FlyTo([44.955, -72.665], 12)">🌲 Richford / Berkshire Ridge (Guertin 178 ac · Bouchard · Robitaille)</button>
+              <button class="btn" onclick="p7FlyTo([44.908, -72.955], 12)">🏠 Sheldon Rte 78 / Rte 105 (Jetté · Bouchard 184 ac · Fortin)</button>
+              <button class="btn" onclick="p7FlyTo([44.905, -73.290], 11)">🏕️ Alburgh &amp; Isle La Motte QC Camps (Blain · Perreault · Blais)</button>
+              <button class="btn" onclick="p7FlyTo([44.915, -72.680], 10)">🌐 Full Northern Border View</button>
+            </div>
+          </div>
+
+          <div id="p7-parcel-map" class="map-frame" style="height:min(74vh, 620px)"></div>
+
+          <div class="legend" style="margin-top:.75rem">
+            <span><i style="background:#b3261e"></i><strong>★ Case Anchors</strong> (Dutchburn Scene, Black Lantern Inn, Jay Peak)</span>
+            <span><i style="background:#e09600"></i><strong>Direct Forum Car-Issue Kin</strong> (<code>Blais</code>, <code>Fortin</code>, <code>Blain/Guertin</code>, <code>Bouchard</code>, <code>Perreault</code>, <code>Lefebvre</code>, <code>Lemire</code>)</span>
+            <span><i style="background:#246bce"></i><strong>CCQ Club Kin Network</strong> (<code>Jetté</code>, <code>Robitaille</code>, <code>Couture</code>, <code>Ferland</code>)</span>
+            <span><i style="background:#5e4cc9"></i><strong>Quebec-Mailed Montgomery/Richford Stash/Camp Parcels</strong> (<code>Longueuil</code>, <code>Brossard</code>, <code>Kirkland</code>, <code>St-Jean-sur-Richelieu</code>)</span>
+            <span><i style="background:#179b6b"></i><strong>VAST Snowmobile Trails</strong> (Corridors 118, 105, 100 &amp; Feeder 120F)</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2: Distance vs. Acreage Visual Chart & Top 7 Stash-House Cards -->
+      <section class="band">
+        <div class="wrap">
+          <header>
+            <div class="eyebrow">Step 02 of 04 · Proximity &amp; Seclusion Analysis · Distance from Dutchburn Scene vs. Acreage</div>
+            <h2>Seven concrete stash-house, camp, and woodland clusters within 1 to 10 miles of the Dutchburn house</h2>
+            <p class="insight">
+              A driver fleeing the Dutchburn apron with a damaged front/rear bumper and an incapacitated passenger needed two things immediately: <strong>(1) a private driveway, shed, camp, or woodlot off VT-118 within minutes of the scene</strong> to hide the car out of sight of passing traffic, and <strong>(2) direct access to the VAST snowmobile trail network</strong>. Click any parcel in the chart or cards below to zoom the map directly to that property.
+            </p>
+          </header>
+
+          <div class="card" style="margin-bottom:1.35rem;padding:1.2rem 1.35rem">
+            <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:.5rem;margin-bottom:.5rem">
+              <h3 style="margin:0">Distance from Dutchburn House (miles) vs. Parcel Size (acres) &amp; VAST Trail Access</h3>
+              <span class="mono" style="font-size:.78rem;color:var(--accent)">Click any bubble to fly map to parcel centroid</span>
+            </div>
+            <div class="scroll-x">
+              <svg id="p7-proximity-svg" viewBox="0 0 960 320" style="min-width:740px;display:block"></svg>
+            </div>
+          </div>
+
+          <div id="p7-cluster-cards" class="cards"></div>
+        </div>
+      </section>
+
+      <!-- STEP 3: Complete Master Matrix of Scraped Forum Car-Issue Posters & VT Property Hits -->
+      <section class="band">
+        <div class="wrap">
+          <header>
+            <div class="eyebrow">Step 03 of 04 · Complete Forum-to-Parcel Cross-Reference Matrix (March 19–31, 2004)</div>
+            <h2>Every scraped forum user with car issues the week of the disappearance and their Vermont property records</h2>
+            <p class="insight">
+              The table below links each March 19–31, 2004 automotive forum thread (collision reports, urgent WTB front/rear bumpers, headlights, trunk lids, and silver doors) to its resolved <code>CCQ_Members_LST.pdf</code> / forum identity, statewide Vermont parcel count, and specific northern Vermont properties. Click any <strong>Zoom to Parcel</strong> button to inspect the exact lot on the map above.
+            </p>
+          </header>
+
+          <div class="card" style="padding:0;overflow:hidden">
+            <div class="scroll-x">
+              <table class="t" style="margin:0">
+                <thead>
+                  <tr>
+                    <th>Forum Handle &amp; Thread</th>
+                    <th>Post Timestamp &amp; Reported Car Issue</th>
+                    <th>Resolved Name / Kin Network</th>
+                    <th>VT Parcels</th>
+                    <th>Exact Northern Vermont Property Locations (Town, E911 Address, Acreage &amp; Tax Mail)</th>
+                    <th>Map Action</th>
+                  </tr>
+                </thead>
+                <tbody id="p7-matrix-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 4: Actionable Next Steps for Cadastral & Stash-House Verification -->
+      <section class="band">
+        <div class="wrap">
+          <header>
+            <div class="eyebrow">Step 04 of 04 · Now What / Next Steps · Cadastral &amp; Stash-House Verification Protocol</div>
+            <h2>How investigators can test these exact Montgomery, Jay, Richford, and Sheldon parcels</h2>
+            <p class="insight">
+              Because municipal Grand List and Property Transfer Tax Return (PTTR) records are public town-clerk instruments in Vermont, verifying which of these parcels had an accessible camp, garage, shed, or sugarhouse in <strong>March 2004</strong> requires zero speculation.
+            </p>
+          </header>
+
+          <div class="cards">
+            <div class="card amber-top">
+              <div class="eyebrow">Action 01 · Montgomery Town Clerk (VT-118 / West Hill Rd)</div>
+              <h3>Pull the 2004 Grand List &amp; E911 cards for West Hill Rd &amp; North Main St</h3>
+              <p>Verify the 2004 ownership and building lister cards in Montgomery for <strong><code>4160 West Hill Rd</code> (<code>Susan Fortin</code>, 23.1-ac log dwelling)</strong>, <strong><code>West Hill Rd</code> (<code>Robert Jetté</code> of <code>584 Rte 78, Sheldon</code>, 23-ac woodland)</strong>, <strong><code>729 West Hill Rd</code> (5-ac A-frame camp, <code>Longueuil, QC</code>)</strong>, <strong><code>1647 West Hill Rd</code> (3.5 ac, <code>Brossard, QC</code>)</strong>, and <strong><code>1268 North Main St</code> (<code>Jacques Robitaille</code>, 26.22 ac)</strong>.</p>
+            </div>
+            <div class="card amber-top">
+              <div class="eyebrow">Action 02 · Jay &amp; Westfield Town Clerks (VT-242 / VT-105)</div>
+              <h3>Check the Route 242 sheds, Shallowbrook camp, and Route 105 houses</h3>
+              <p>Inspect the 2004 lister cards in Jay for <strong><code>VT Route 242</code> (<code>Roland G. Blais</code>, 15.6 acres &amp; sheds—kin surname of <code>Lemieux</code> / <code>Pier-Luc Blais</code>, who posted <code>t=101738</code> at 11:42 am Saturday Mar 20 seeking a Civic front grill)</strong>, <strong><code>158 Shallowbrook Heights</code> (<code>Nicholas &amp; Anne Bouchard</code>, 80.55-ac camp w/ pond)</strong>, <strong><code>527 VT Route 242</code> (<code>Heidi Fortin</code>)</strong>, and <strong><code>1860 VT Route 105</code> (<code>Roger Perreault</code>)</strong>.</p>
+            </div>
+            <div class="card amber-top">
+              <div class="eyebrow">Action 03 · Richford &amp; Berkshire Town Clerks</div>
+              <h3>Cross-check 140 Hardwood Hill Rd (178 ac) &amp; 281 Montgomery Rd (65 ac)</h3>
+              <p>Verify 2004 occupancy, outbuildings, and VAST trail crossings on <strong><code>140 Hardwood Hill Rd, Richford</code> (<code>Dale &amp; Mary Guertin</code>, 178 acres on the Richford/Montgomery ridge—matching CCQ #78 <code>Bernard Guertin</code> adjacent to <code>Greencivic</code> / <code>Guillaume Blain</code>)</strong>, <strong><code>1325 Corliss Rd, Richford</code> (<code>Christopher Bouchard</code>, 10.5 ac)</strong>, and <strong><code>281 Montgomery Rd, East Berkshire</code> (<code>Paul &amp; Travis Robitaille</code>, 65.34 ac)</strong>.</p>
+            </div>
+            <div class="card amber-top">
+              <div class="eyebrow">Action 04 · Cross-Match VAST Club Rosters to Parcel Owners</div>
+              <h3>Overlay the 2004 Covered Bridge &amp; Missisquoi Bearcats club rosters</h3>
+              <p>Cross-reference the 2003–2004 landowner permission slips and trail-pass rosters of the <strong>Covered Bridge Snowmobile Club (Montgomery)</strong> and <strong>Missisquoi Bearcats (Richford)</strong> against the exact parcel surnames above (<code>Blais</code>, <code>Fortin</code>, <code>Guertin</code>, <code>Bouchard</code>, <code>Perreault</code>, <code>Jetté</code>, <code>Robitaille</code>, <code>Lefebvre</code>, <code>Couture</code>, <code>Ferland</code>).</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </article>
+
   </main>
 
   <!-- ======================================================================= -->
@@ -2026,6 +2199,9 @@
     let BUNDLE = null;
     let p2Map = null;
     let p5Map = null;
+    let p7Map = null;
+    let p7MarkerGroup = null;
+    let p7ActiveFilter = 'all';
     let p5Layers = { aerial: null, lidar: null, heat: null };
     let p5LayerState = { aerial: true, lidar: true, heat: true };
     let p4Sim = null;
@@ -2049,6 +2225,7 @@
         initPage4Network();
         initPage5Visuals();
         initPage6Visuals();
+        initPage7Visuals();
       }
     }
 
@@ -2056,7 +2233,7 @@
     // PAGE NAVIGATION
     // -------------------------------------------------------------------------
     function showPage(pageNum) {
-      for (let i = 1; i <= 6; i++) {
+      for (let i = 1; i <= 7; i++) {
         const sec = document.getElementById('page-' + i);
         const btn = document.getElementById('nav-btn-' + i);
         if (sec) sec.classList.toggle('hidden', i !== pageNum);
@@ -2078,6 +2255,13 @@
         setTimeout(() => {
           if (!p5Map && BUNDLE) initPage5VaultMap();
           else if (p5Map) p5Map.invalidateSize();
+        }, 80);
+      }
+      if (pageNum === 7) {
+        setTimeout(() => {
+          try { initPage7Visuals(); } catch (e) { console.error(e); }
+          if (!p7Map) initPage7Map();
+          else p7Map.invalidateSize();
         }, 80);
       }
     }
@@ -3752,10 +3936,463 @@
     }
 
     // -------------------------------------------------------------------------
+    // PAGE 7: VERMONT STASH HOUSES & FORUM KINSHIP CADASTRAL ATLAS
+    // -------------------------------------------------------------------------
+    const P7_PARCELS = [
+      // GROUP 1: DIRECT MARCH 19-31, 2004 FORUM CAR-ISSUE KIN ("forum")
+      { id: 'fortin-mont', cat: 'forum', town: 'Montgomery', owner: 'FORTIN SUSAN', e911: '4160 WEST HILL RD', desc: '1.5S LOG DWL & 23.1 AC', acres: 23.1, mail: 'PO BOX 336, DERBY, VT', lat: 44.83834, lon: -72.66097, mi: 4.9, forum: 'yalpen islong ("Frank" = CCQ #160 Frank Fortin)', post: 'Wed Mar 24, 2004 (t=102771): Urgent WTB \'96–\'98 Civic front bumper', note: 'Log home & 23.1 acres directly on West Hill Rd in Montgomery, branching south off VT-118 into the VAST Corridor 118 trail network.' },
+      { id: 'fortin-jay', cat: 'forum', town: 'Jay', owner: 'DREW ABIGAIL M & FORTIN HEIDI L', e911: '527 VT ROUTE 242', desc: 'HOUSE & LAND ON VT-242', acres: 2.5, mail: '527 VT ROUTE 242, JAY, VT', lat: 44.94859, lon: -72.42816, mi: 11.6, forum: 'yalpen islong ("Frank" = CCQ #160 Frank Fortin)', post: 'Wed Mar 24, 2004 (t=102771): Urgent WTB \'96–\'98 Civic front bumper', note: 'Located directly on VT Route 242 (Jay Peak Mountain Rd) just east of the resort.' },
+      { id: 'fortin-troy', cat: 'forum', town: 'Troy', owner: 'FORTIN LILLIAN LE', e911: '1775 VT ROUTE 105W', desc: 'DWL & 2.85 AC', acres: 2.85, mail: '1775 VT RTE 105W, NORTH TROY, VT', lat: 44.96367, lon: -72.42127, mi: 12.2, forum: 'yalpen islong ("Frank" = CCQ #160 Frank Fortin)', post: 'Wed Mar 24, 2004 (t=102771): Urgent WTB \'96–\'98 Civic front bumper', note: 'On VT-105W between Jay and North Troy border crossing.' },
+      { id: 'fortin-berk1', cat: 'forum', town: 'Berkshire', owner: 'FORTIN RUSSELL R & ANNE-MARIE', e911: '3660 RESERVOIR RD', desc: '10.1 AC & DWL', acres: 10.1, mail: '3660 RESERVOIR RD, ENOSBURG FALLS, VT', lat: 44.96948, lon: -72.77146, mi: 6.9, forum: 'yalpen islong ("Frank" = CCQ #160 Frank Fortin)', post: 'Wed Mar 24, 2004 (t=102771): Urgent WTB \'96–\'98 Civic front bumper', note: 'Plus adjacent 3263 Reservoir Rd (5.44 ac, Bryan Fortin) in Berkshire.' },
+      { id: 'fortin-sheldon', cat: 'forum', town: 'Sheldon', owner: 'FORTIN DOUGLAS & LAURIE', e911: '572 RICE HILL RD', desc: '1.5 AC & DWL (+61 AC HIGHGATE)', acres: 62.5, mail: '572 RICE HILL RD, FRANKLIN, VT', lat: 44.92141, lon: -72.95251, mi: 14.4, forum: 'yalpen islong ("Frank" = CCQ #160 Frank Fortin)', post: 'Wed Mar 24, 2004 (t=102771): Urgent WTB \'96–\'98 Civic front bumper', note: 'Sheldon / Highgate border corridor; plus 210 Boarding House St, Sheldon (Roy Fortin).' },
+      { id: 'fortin-ilm', cat: 'forum', town: 'Isle La Motte', owner: 'FORTIN CLAUDETTE', e911: '3 LAKEHURST CAMPGROUND', desc: 'SEASONAL CAMP LOT (QC OWNER)', acres: 0.5, mail: '215 ST NICOLAS, NAPIERVILLE, QC J0J 1L0', lat: 44.84138, lon: -73.33713, mi: 33.6, forum: 'yalpen islong ("Frank" = CCQ #160 Frank Fortin)', post: 'Wed Mar 24, 2004 (t=102771): Urgent WTB \'96–\'98 Civic front bumper', note: 'Quebec-mailed seasonal camp lot owned out of Napierville, QC (Montérégie South Shore).' },
+
+      { id: 'blais-jay1', cat: 'forum', town: 'Jay', owner: 'BLAIS ROLAND G', e911: 'VT ROUTE 242', desc: 'SHEDS & 15.6 ACRES ON ROUTE 242', acres: 15.6, mail: '42 COLONY TERRACE, NEWPORT, VT', lat: 44.94041, lon: -72.46514, mi: 9.7, forum: 'Lemieux (Unmasked CCQ #95 = Pier-Luc Blais)', post: 'Sat Mar 20, 2004 @ 11:42 AM (+12 hr, t=101738): WTB \'92–\'95 Civic front grill', note: 'Uninhabited sheds and 15.6 acres directly on VT Route 242 at Jay Peak—ideal unattended shelter & snowmobile staging lot.' },
+      { id: 'blais-jay2', cat: 'forum', town: 'Jay', owner: 'GIRARD JUSTIN S & BLAIS DENA M', e911: '1255 NORTH JAY RD TH 3', desc: 'HOME & 18.9 ACRES', acres: 18.9, mail: '1255 NORTH JAY RD, JAY, VT', lat: 44.98779, lon: -72.45221, mi: 11.4, forum: 'Lemieux (Unmasked CCQ #95 = Pier-Luc Blais)', post: 'Sat Mar 20, 2004 @ 11:42 AM (+12 hr, t=101738): WTB \'92–\'95 Civic front grill', note: '18.9 acres on North Jay Rd leading straight to the Mansonville/Sutton Quebec border slash & VAST trail.' },
+      { id: 'blais-west1', cat: 'forum', town: 'Westfield', owner: 'BLAIS ROSE MARY & PREEDOM SUSAN', e911: 'NORTH HILL RD', desc: '16.11 ACRES UNIMPROVED LAND', acres: 16.11, mail: '152 METAYER CT, WATERBURY CTR, VT', lat: 44.90220, lon: -72.42890, mi: 11.2, forum: 'Lemieux (Unmasked CCQ #95 = Pier-Luc Blais)', post: 'Sat Mar 20, 2004 @ 11:42 AM (+12 hr, t=101738): WTB \'92–\'95 Civic front grill', note: 'Plus 143 Kennison Rd, Westfield (1.5 ac, Karen Blais) and 3 Blais parcels in Troy (1641 VT Rte 105W, 172 Blais Rd, VT Rte 243).' },
+      { id: 'blais-ilm', cat: 'forum', town: 'Isle La Motte', owner: 'BLAIS LOUIS', e911: '176 LAKEHURST CAMPGROUND', desc: 'SEASONAL CAMP LOT (LAVAL QC)', acres: 0.5, mail: '2061 DES FOUS-DE-BASSAN, LAVAL, QC H7L 0H2', lat: 44.84250, lon: -73.33820, mi: 33.6, forum: 'Lemieux (Unmasked CCQ #95 = Pier-Luc Blais)', post: 'Sat Mar 20, 2004 @ 11:42 AM (+12 hr, t=101738): WTB \'92–\'95 Civic front grill', note: 'Quebec-mailed seasonal camp lot owned out of Laval, QC.' },
+
+      { id: 'guertin-rich', cat: 'forum', town: 'Richford', owner: 'GUERTIN DALE & MARY', e911: '140 HARDWOOD HILL RD', desc: '1F DWL & 178 ACRES ON RIDGE', acres: 178.0, mail: 'PO BOX 25, RICHFORD, VT', lat: 44.95694, lon: -72.67601, mi: 3.3, forum: 'Greencivic (CCQ #80 Guillaume Blain) & CCQ #78 Bernard Guertin', post: 'Mon Mar 22 (t=102191, WTB Silver Door) & Tue Mar 23 (t=102472, Urgent \'97 Civic w/ 1.6 EL trunk)', note: 'Massive 178-acre tract on Hardwood Hill Rd straddling the Richford/Montgomery highland ridge 3.3 miles north of the Dutchburn house.' },
+      { id: 'blain-alb', cat: 'forum', town: 'Alburgh', owner: 'BLAIN FANNY & GUERIN DENIS', e911: '8F ALBURGH RV RESORT', desc: '90 PARK MODEL CAMP (BELOEIL QC)', acres: 0.5, mail: '952 RUE ARMAND-DAIGLE, BELOEIL, QC J3G 0V8', lat: 44.96531, lon: -73.24257, mi: 28.8, forum: 'Greencivic (Unmasked CCQ #80/#123 = Guillaume Blain)', post: 'Mon Mar 22 (t=102191, WTB Silver Door) & Tue Mar 23 (t=102472, Urgent \'97 Civic w/ 1.6 EL trunk)', note: 'Direct Blain camp in northern VT mailed to Beloeil, QC (Montérégie South Shore, adjacent to Boucherville/Ste-Julie).' },
+
+      { id: 'bouchard-jay', cat: 'forum', town: 'Jay', owner: 'BOUCHARD NICHOLAS & ANNE', e911: '158 SHALLOWBROOK HEIGHTS', desc: 'CAMP W/ POND & 80.55 ACRES', acres: 80.55, mail: '954 EAST HILL RD, NORTH TROY, VT', lat: 44.92934, lon: -72.47933, mi: 8.9, forum: 'LeiYa (CCQ #149 Melany Bouchard) & CCQ #6 Sylvain Bouchard', post: 'Mon Mar 22 & Wed Mar 24 (t=102117/102789): Silver \'96–\'00 Civic HB & parts posts', note: 'Private 80.55-acre camp with pond in Jay Peak foothills (+ 503 Shallowbrook Rd, Jean-Robert Bouchard, and 12 parcels / 257+ ac in Troy).' },
+      { id: 'bouchard-rich', cat: 'forum', town: 'Richford', owner: 'BOUCHARD CHRISTOPHER S', e911: '1325 CORLISS RD', desc: '1F DWL & 10.5 ACRES', acres: 10.5, mail: '1325 CORLISS RD, RICHFORD, VT', lat: 45.00320, lon: -72.62392, mi: 6.6, forum: 'LeiYa (CCQ #149 Melany Bouchard) & CCQ #6 Sylvain Bouchard', post: 'Mon Mar 22 & Wed Mar 24 (t=102117/102789): Silver \'96–\'00 Civic HB & parts posts', note: 'Located on Corliss Rd in northern Richford near the Pinnacle / Abercorn Quebec border.' },
+      { id: 'bouchard-shel', cat: 'forum', town: 'Sheldon', owner: 'BOUCHARD NORMAN M & STEPHANIE T', e911: '497 BOUCHARD RD', desc: '183.8 ACRES & FARM', acres: 183.8, mail: '497 BOUCHARD RD, SHELDON, VT', lat: 44.89524, lon: -72.93639, mi: 13.7, forum: 'LeiYa (CCQ #149 Melany Bouchard) & CCQ #6 Sylvain Bouchard', post: 'Mon Mar 22 & Wed Mar 24 (t=102117/102789): Silver \'96–\'00 Civic HB & parts posts', note: '183.8-acre farm in Sheldon; plus 8 Bouchard parcels (444+ acres) on Morses Line Rd & Bouchard Rd in Franklin, VT.' },
+      { id: 'bouchard-enos', cat: 'forum', town: 'Enosburgh', owner: 'BOUCHARD CHRISTOPHER & THOMPSON S', e911: '1012 BOGUE RD', desc: '10.20 AC & DWL', acres: 10.2, mail: '1012 BOGUE RD, ENOSBURG FALLS, VT', lat: 44.85572, lon: -72.78267, mi: 7.2, forum: 'LeiYa (CCQ #149 Melany Bouchard) & CCQ #6 Sylvain Bouchard', post: 'Mon Mar 22 & Wed Mar 24 (t=102117/102789): Silver \'96–\'00 Civic HB & parts posts', note: 'Plus 743 Lost Nation Rd, Bakersfield (138.1 ac, Brian Bouchard) and 28C Alburgh RV Resort (Anick Bouchard, Blainville QC).' },
+
+      { id: 'perreault-jay1', cat: 'forum', town: 'Jay', owner: 'PERREAULT ROGER', e911: '1860 VT ROUTE 105', desc: 'HOME & 1 ACRE ON ROUTE 105', acres: 1.0, mail: 'PO BOX 14, TROY, VT', lat: 44.97287, lon: -72.45766, mi: 10.7, forum: 'Slystone (Unmasked CCQ #189 = Sylvain Perreault)', post: 'Sat Mar 20, 2004 @ 15:18 EST (+16 hr, t=101772): Saturday afternoon CRX/Civic post', note: 'Directly on VT-105 in Jay; plus 12.2 acres of unimproved land on Tranquility Ln & Cross Rd in Jay (Nicholas & Melissa Perrault).' },
+      { id: 'perreault-ilm', cat: 'forum', town: 'Isle La Motte', owner: 'PERREAULT DENIS', e911: '98 LAKEHURST CAMPGROUND', desc: 'SEASONAL CAMP (BROSSARD QC)', acres: 0.5, mail: '1500 PALERME APT 305, BROSSARD, QC J4W 3L4', lat: 44.84020, lon: -73.33600, mi: 33.6, forum: 'Slystone (Unmasked CCQ #189 = Sylvain Perreault)', post: 'Sat Mar 20, 2004 @ 15:18 EST (+16 hr, t=101772): Saturday afternoon CRX/Civic post', note: 'Mailed to Brossard, QC (South Shore Montreal); adjacent lot #70 owned by Carol Perrault & Sylvia Levesque of Longueuil, QC.' },
+
+      { id: 'lefebvre-troy', cat: 'forum', town: 'Troy', owner: 'LEFEBVRE WILLIAM J & ELIZABETH S', e911: '316 AARON GREENWOOD RD', desc: 'CAMP & 3 ACRES', acres: 3.0, mail: '95 BEECH HILL RD, WEARE, NH', lat: 44.91329, lon: -72.39221, mi: 13.0, forum: 'HOMER & "Brian" (CCQ #43 Bryan Lefebvre) + bigguss_90', post: 'Sat Mar 20 @ 2:00 AM (t=101701) & Mon Mar 22 (t=102268/280): WTB \'97 Acura 1.6 EL front end + rear trunk lid & lights', note: 'Private 3-acre camp in Troy just east of Jay Peak.' },
+      { id: 'lefebvre-berk', cat: 'forum', town: 'Berkshire', owner: 'LEFEBVRE AARON M & EMILY', e911: '330 CIOFFOLETTI RD', desc: '5.0 AC & DWL', acres: 5.0, mail: '330 CIOFFOLETTI RD, ENOSBURG FALLS, VT', lat: 44.93925, lon: -72.72570, mi: 3.9, forum: 'HOMER & "Brian" (CCQ #43 Bryan Lefebvre) + bigguss_90', post: 'Sat Mar 20 @ 2:00 AM (t=101701) & Mon Mar 22 (t=102268/280): WTB \'97 Acura 1.6 EL front end + rear trunk lid & lights', note: 'Only 3.9 miles west of the Dutchburn house; plus 6578 Berkshire Center Rd (1.5 ac, Randi Lefebvre) and 5137 Tyler Branch Rd, Enosburgh (3 ac).' },
+      { id: 'lemire-swan', cat: 'forum', town: 'Swanton', owner: 'LEMIRE RONALD & CARLA LIFE EST', e911: '10 & 30 MAPLE RIDGE EST', desc: '45.39 ACRES & HOME', acres: 45.39, mail: '10 MAPLE RIDGE EST, SWANTON, VT', lat: 44.90571, lon: -73.07535, mi: 20.4, forum: 'L0G1K (Unmasked CCQ #186 = Frederic Lemire)', post: 'Sun Mar 21, 2004 (t=102003): Sunday 1998 Civic Si post', note: '45.39 acres across 4 Swanton parcels near I-89 and VT-78.' },
+
+      // GROUP 2: CCQ CLUB KIN NETWORK IN IMMEDIATE CORRIDOR ("ccq")
+      { id: 'jette-mont', cat: 'ccq', town: 'Montgomery', owner: 'JETTE ROBERT (OF SHELDON, VT)', e911: 'WEST HILL RD', desc: '23 ACRES UNIMPROVED WOODLAND', acres: 23.0, mail: '584 RTE 78, SHELDON, VT 05483', lat: 44.89016, lon: -72.66607, mi: 1.4, forum: 'CCQ #57 Maxime Jetté (\'00 Silver/Black Civic HB) Kin Network', post: 'Direct Montgomery–Sheldon Property Bridge', note: 'CRITICAL HIT: 23 acres of unimproved woodland on West Hill Rd in Montgomery (1.4 miles south of the Dutchburn house!) owned by Robert Jetté of 584 VT Rte 78, Sheldon, VT (Brianna\'s hometown).' },
+      { id: 'jette-enos1', cat: 'ccq', town: 'Enosburgh', owner: 'JETTE ERIC IRA', e911: '1585 ENOSBURG MTN RD', desc: '3.62 AC & MOBILE HOME', acres: 3.62, mail: '331 PERLEY RD, ENOSBURG FALLS, VT', lat: 44.84030, lon: -72.70186, mi: 5.3, forum: 'CCQ #57 Maxime Jetté Kin Network', post: 'Enosburg Mountain Rd / Cold Hollow Range', note: 'Located on Enosburg Mountain Rd; plus 80 acres at 997 Woodward Neighborhood Rd, Enosburgh owned by Robert Jetté & Lucie Boulet.' },
+      { id: 'jette-shel1', cat: 'ccq', town: 'Sheldon', owner: 'JETTE ROBERT & BOULET LUCY', e911: '584 VT RTE 78 & 4356 VT RTE 105', desc: 'DWL, GARAGE, MH & 3.1 AC (+38.4 AC HIGHGATE)', acres: 41.5, mail: '584 VT RTE 78, SHELDON, VT 05483', lat: 44.90968, lon: -72.95303, mi: 14.4, forum: 'CCQ #57 Maxime Jetté Kin Network', post: 'Primary Sheldon Residence of Montgomery Woodland Owner', note: 'Owner of the 23-acre West Hill Rd woodland in Montgomery and 80-acre Enosburgh tract; holds 6 Jetté family parcels in Sheldon.' },
+      { id: 'robitaille-mont1', cat: 'ccq', town: 'Montgomery', owner: 'ROBITAILLE JACQUES', e911: '1268 NORTH MAIN ST', desc: '1.0S DWL & 26.22 ACRES ON VT-118', acres: 26.22, mail: '1268 NORTH MAIN ST, EAST BERKSHIRE, VT', lat: 44.89753, lon: -72.62805, mi: 1.7, forum: 'CCQ #108 Pascal Robitaille & #153 Stéphan Robitaille Kin Network', post: 'Directly on VT-118 (1.7 mi East of Dutchburn House)', note: '26.22 acres on North Main St (VT-118) in Montgomery, plus 148 Main St, Montgomery Center (Deanna Robitaille).' },
+      { id: 'robitaille-berk', cat: 'ccq', town: 'Berkshire', owner: 'ROBITAILLE PAUL & TRAVIS', e911: '281 MONTGOMERY RD', desc: '65.34 ACRES & DWL ON VT-118', acres: 65.34, mail: '281 MONTGOMERY RD, EAST BERKSHIRE, VT', lat: 44.93029, lon: -72.70929, mi: 2.8, forum: 'CCQ #108 Pascal Robitaille & #153 Stéphan Robitaille Kin Network', post: 'Directly on Montgomery Rd / VT-118 (2.8 mi West of Dutchburn House)', note: '65.34 acres right on the Montgomery–East Berkshire road, plus 34.4 acres at 495 & 899 Perley Rd, Enosburgh.' },
+      { id: 'robitaille-rich', cat: 'ccq', town: 'Richford', owner: 'ROBITAILLE DONALD & JOANNE', e911: '7 GENDRON RD', desc: '1F DWL & 0.7 AC (+79 EASTERN AVE)', acres: 1.14, mail: '7 GENDRON RD, RICHFORD, VT', lat: 44.96180, lon: -72.63185, mi: 3.8, forum: 'CCQ #108 Pascal Robitaille & #153 Stéphan Robitaille Kin Network', post: 'Richford Corridor', note: '3.8 miles north of the Dutchburn house off VT-105.' },
+      { id: 'couture-berk', cat: 'ccq', town: 'Berkshire', owner: 'COUTURE MICHAEL, SEAN & BARNARD A', e911: '1088 & 1209 AYERS HILL RD', desc: '325.37 ACRES, DWL & FARM BLDGS', acres: 325.37, mail: '838 AYERS HILL RD, ENOSBURG FALLS, VT', lat: 45.00474, lon: -72.75592, mi: 8.1, forum: 'CCQ #31 Sébastien Couture & #190 Eric Couture Kin Network', post: 'Berkshire / Richford Border Ridge', note: 'Massive 325-acre Berkshire tract near the Canadian line; plus 2025 North Rd, Berkshire (5 ac, Daniel Couture).' },
+      { id: 'couture-west1', cat: 'ccq', town: 'Westfield', owner: 'BOUCHER ROBERT & COUTURE GISELE', e911: '1257 SNIDERBROOK RD', desc: '21.9 ACRES & DWL (MONTREAL QC)', acres: 21.9, mail: '303-131 CHEMIN BATES, VILLE MONT-ROYAL, QC H2B 1B1', lat: 44.85407, lon: -72.45213, mi: 10.8, forum: 'CCQ #31 Sébastien Couture & #190 Eric Couture Kin Network', post: 'Montreal-Mailed Couture Retreat on Sniderbrook Rd', note: 'Mailed directly to Ville Mont-Royal (Montreal, QC); adjacent to 380+ acres of Jacques, Michel & Jean-Paul Couture land on VT-100 & North Hill Rd in Westfield.' },
+      { id: 'couture-shel', cat: 'ccq', town: 'Sheldon', owner: 'COUTURE CALEB', e911: '1044 SWEET HOLLOW RD', desc: '8.6 AC & DWL', acres: 8.6, mail: '1044 SWEET HOLLOW RD, SHELDON, VT', lat: 44.89307, lon: -72.99234, mi: 16.4, forum: 'CCQ #31 Sébastien Couture & #190 Eric Couture Kin Network', post: 'Sheldon Corridor', note: 'Located on Sweet Hollow Rd in Sheldon.' },
+      { id: 'ferland-berk', cat: 'ccq', town: 'Berkshire', owner: 'FERLAND MICHAEL & STACEY', e911: '6133 WEST BERKSHIRE RD', desc: '9.1 ACRES', acres: 9.1, mail: '6133 WEST BERKSHIRE RD, ENOSBURG FALLS, VT', lat: 44.98981, lon: -72.81505, mi: 9.4, forum: 'CCQ #9 Marc-André Ferland & #146 Patrick Ferland Kin Network', post: 'West Berkshire / Franklin Border Corridor', note: 'Plus 5115 Main St, Franklin (41.74 ac, Christopher Ferland) and 411 acres on Carter Hill & Gore Rd in Highgate.' },
+
+      // GROUP 3: QUEBEC-MAILED CAMPS & WOODLAND IN MONTGOMERY / RICHFORD / BERKSHIRE ("qc")
+      { id: 'qc-mont-wh1', cat: 'qc', town: 'Montgomery', owner: 'KUHNIGK MONIKA, HELEN, ALBERT & MARTIN', e911: '729 WEST HILL RD', desc: '1.5S A-FRAME CAMP & 5 ACRES (LONGUEUIL QC)', acres: 5.0, mail: '880 RUE SAINT-JEAN, LONGUEUIL, QC', lat: 44.89204, lon: -72.65123, mi: 1.3, forum: 'South Shore Montreal (Longueuil QC) A-Frame Camp', post: '1.3 Miles South of Dutchburn House on West Hill Rd', note: 'Isolated 5-acre A-frame camp on West Hill Rd in Montgomery mailed to Longueuil, QC (South Shore Montreal).' },
+      { id: 'qc-mont-wh2', cat: 'qc', town: 'Montgomery', owner: 'PETER MARINA', e911: '1647 WEST HILL RD', desc: '1.0S CAMP/DWL & 3.5 ACRES (BROSSARD QC)', acres: 3.5, mail: '2555 NICOLAS, BROSSARD, QC', lat: 44.88008, lon: -72.65972, mi: 2.1, forum: 'South Shore Montreal (Brossard QC) Retreat', post: '2.1 Miles South of Dutchburn House on West Hill Rd', note: 'Mailed to Brossard, QC—the same South Shore hub as HOMER, "Brian", and Slystone.' },
+      { id: 'qc-mont-wh3', cat: 'qc', town: 'Montgomery', owner: 'VELEZ ANGELITA', e911: '135 WEST HILL RD', desc: '1.5S DWL & 0.5 AC (VERDUN QC)', acres: 0.5, mail: '20 ALLEES DES BRISES DU FLEUVE, VERDUN, QC', lat: 44.89897, lon: -72.64964, mi: 0.9, forum: 'Montreal (Verdun QC) Property at Entrance to West Hill Rd', post: '0.9 Miles from Dutchburn House', note: 'Closest Quebec-mailed property to the Dutchburn house (0.9 miles).' },
+      { id: 'qc-mont-sr', cat: 'qc', town: 'Montgomery', owner: 'ANOVA INC C/O FERDINAND ALFIERI', e911: 'SOUTH RICHFORD RD', desc: '81.3 ACRES UNIMPROVED WOODLAND (ST-LAURENT QC)', acres: 81.3, mail: '2995 SOMERSET ST, ST-LAURENT, MONTREAL, QC', lat: 44.92025, lon: -72.63675, mi: 1.2, forum: 'Montreal (St-Laurent QC) 81.3-Acre Woodland Tract', post: '1.2 Miles NE of Dutchburn House on South Richford Rd', note: '81.3 acres of unimproved woodland on South Richford Rd directly between the Dutchburn house and the Richford/Abercorn border.' },
+      { id: 'qc-rich-sr', cat: 'qc', town: 'Richford', owner: 'DIMAN JEROME & SAMOT CHRISTELLE', e911: '634 S RICHFORD RD', desc: '1F DWL & 10.3 ACRES (MONTREAL QC)', acres: 10.3, mail: '2353 RUE BORDEAUX, MONTREAL, QC', lat: 44.93944, lon: -72.64298, mi: 2.1, forum: 'Montreal-Mailed South Richford Rd Property', post: '2.1 Miles North of Dutchburn House', note: 'Located on the back-road route between Montgomery and Richford.' },
+      { id: 'qc-berk-camp', cat: 'qc', town: 'Berkshire', owner: 'KOELBLEN JOANNE & HELEN', e911: '161 CAMP ROAD', desc: '40.0 ACRES & DWL (ST-LEONARD MONTREAL QC)', acres: 40.0, mail: '9350 RUE CHOPIN, SAINT-LEONARD, MONTREAL, QC', lat: 44.95317, lon: -72.68979, mi: 3.3, forum: 'Montreal (St-Léonard QC) 40-Acre Camp Road Property', post: '3.3 Miles NW of Dutchburn House', note: '40-acre property on Camp Road in East Berkshire.' },
+      { id: 'qc-berk-stjean', cat: 'qc', town: 'Berkshire', owner: 'AUBUT PATRICE & ALINE', e911: '1357 BERRY ROAD', desc: '2.0 ACRES (ST-JEAN-SUR-RICHELIEU QC)', acres: 2.0, mail: '160 BOUL ST-LUC APT 706, ST-JEAN-SUR-RICHELIEU, QC', lat: 45.00537, lon: -72.70265, mi: 6.9, forum: 'St-Jean-sur-Richelieu QC Border Lot (Same City as DomR / Dominic Clouatre)', post: 'Right on the Berkshire / St-Armand Border Line', note: 'Mailed to St-Jean-sur-Richelieu, QC (the exact hometown of DomR / Dominic Clouatre, who posted t=101686 at 12:06 AM on Sat Mar 20).' },
+      { id: 'qc-mont-kirk1', cat: 'qc', town: 'Montgomery', owner: '153512 CANADA INC & KUNERT / BOUSETTE ANDRE', e911: 'MOUNTAIN RD & LUTZ RD', desc: '104.6 ACRES WOODLAND & 2.0S DWL (KIRKLAND QC)', acres: 104.6, mail: '7 RUE STONEMAN, KIRKLAND, QC', lat: 44.88682, lon: -72.58473, mi: 4.0, forum: 'West Island Montreal (Kirkland QC · GuyMR2 / "Andrew" Circle)', post: 'Sun Mar 21 (t=101929): West Island circle ("my friend\'s 1.7 EL got trashed")', note: '10.1-acre woodland + 94.5-acre estate on Mountain Rd / Lutz Rd in Montgomery mailed to Kirkland, QC (West Island).' },
+      { id: 'qc-mont-kirk2', cat: 'qc', town: 'Montgomery', owner: 'MUNTIGL JOSEF, DIANE, ANGELICA & PETER', e911: '1255 MOUNTAIN RD', desc: '2.0S DWL & 11.1 ACRES (KIRKLAND QC)', acres: 11.1, mail: '104 MACDONALD, KIRKLAND, QC', lat: 44.88427, lon: -72.58773, mi: 3.9, forum: 'West Island Montreal (Kirkland QC · GuyMR2 / "Andrew" Circle)', post: 'Sun Mar 21 (t=101929): West Island circle ("my friend\'s 1.7 EL got trashed")', note: 'On VT-242 / Mountain Rd in Montgomery, mailed to Kirkland, QC; adjacent to 137 Kunert Dr (6.6-ac log home, Pincourt QC) and 3192 Mountain Rd (22.7 ac, Dorval QC).' },
+      { id: 'qc-mont-nut', cat: 'qc', town: 'Montgomery', owner: 'CABIN IN VERMONT LP', e911: '213 NUTTING RD', desc: '1.5S CAMP & 22.4 ACRES (WESTMOUNT QC)', acres: 22.4, mail: '307-400 KENSINGTON AVE, WESTMOUNT, QC', lat: 44.82893, lon: -72.60492, mi: 6.2, forum: 'Montreal (Westmount QC) 22.4-Acre Cabin in Montgomery', post: 'Remote Southern Montgomery Backcountry (Adjacent to VAST Corridor 118)', note: 'Plus 373 Nutting Rd (3 ac, Daniel Picotte & Nicole Beausejour, Montreal QC).' },
+      { id: 'qc-frank-cowan', cat: 'qc', town: 'Franklin', owner: 'DE LA MARE / SPRACKLIN / BAXTER', e911: '33, 47 & 52 KINGS COURT', desc: '3 SEASONAL CAMPS (COWANSVILLE QC)', acres: 1.0, mail: '103 QUEBEC ST, 116 PAUL COMTOIS & 139 CHOMEDEY, COWANSVILLE, QC', lat: 44.99120, lon: -72.86240, mi: 11.4, forum: 'Cowansville QC Camp Cluster (Same Town as Greencivic / Guillaume Blain)', post: 'Lake Carmi / Franklin Border Camp Cluster', note: 'Three adjacent camps on Kings Court in Franklin, VT mailed to Cowansville, QC.' }
+    ];
+
+    const P7_CLUSTERS = [
+      {
+        title: '1. West Hill Rd, Montgomery (0.9 to 4.9 mi South of Scene)',
+        badge: 'Montgomery, VT · Direct VAST Corridor 118 Access',
+        color: 'amber-top',
+        lat: 44.89016, lon: -72.66607, zoom: 13,
+        summary: 'Branches directly off VT-118 less than 2 miles from the Dutchburn house. Hosts BOTH a 23-acre unimproved woodland parcel owned by Robert Jetté of 584 Rte 78, Sheldon (Brianna\'s town; kin surname of CCQ #57 Maxime Jetté) AND a 23.1-acre log home at 4160 West Hill Rd owned by Susan Fortin (kin surname of CCQ #160 Frank Fortin / yalpen islong, who sought a \'96–\'98 Civic front bumper on Mar 24), plus two South Shore Montreal camps (729 West Hill Rd, Longueuil QC & 1647 West Hill Rd, Brossard QC).'
+      },
+      {
+        title: '2. VT Route 242 & North Jay Rd, Jay (8.9 to 11.4 mi East)',
+        badge: 'Jay Peak Corridor · Sheds, 80.5-Ac Camp & Rte 105 Home',
+        color: 'amber-top',
+        lat: 44.94041, lon: -72.46514, zoom: 12,
+        summary: 'Directly on the mountain road to Jay Peak: Roland G. Blais owns 15.6 acres & sheds on VT Route 242 and Dena Blais owns 18.9 acres at 1255 North Jay Rd (matching Lemieux / Pier-Luc Blais, who posted t=101738 at 11:42 am Saturday Mar 20 seeking a Civic front grill). Immediately adjacent: Nicholas & Anne Bouchard\'s 80.55-acre camp with pond (158 Shallowbrook Heights), Heidi Fortin\'s house (527 VT-242), and Roger Perreault\'s home (1860 VT-105).'
+      },
+      {
+        title: '3. 140 Hardwood Hill Rd & Corliss Rd, Richford (3.3 to 6.6 mi North)',
+        badge: 'Richford / Montgomery Ridge · 178-Acre Guertin Tract',
+        color: 'amber-top',
+        lat: 44.95694, lon: -72.67601, zoom: 12,
+        summary: 'Just 3.3 miles north of the Dutchburn house on the Richford/Montgomery ridge, Dale & Mary Guertin own 178 acres and a dwelling at 140 Hardwood Hill Rd (matching CCQ #78 Bernard Guertin, adjacent on the CCQ roster to Greencivic / Guillaume Blain, who sought a silver door on Mar 22 and urgently listed a \'97 Civic w/ 1.6 EL trunk on Mar 23). Further north in Richford is Christopher Bouchard\'s 10.5-acre parcel at 1325 Corliss Rd.'
+      },
+      {
+        title: '4. 1268 North Main St & 281 Montgomery Rd (1.7 to 2.8 mi on VT-118)',
+        badge: 'Montgomery & East Berkshire · Robitaille & Lefebvre Parcels',
+        color: 'blue-top',
+        lat: 44.91500, lon: -72.67000, zoom: 12,
+        summary: 'Right on the VT-118 corridor straddling the Dutchburn house: Jacques Robitaille owns 26.22 acres at 1268 North Main St, Montgomery (1.7 mi east) and Paul & Travis Robitaille own 65.34 acres at 281 Montgomery Rd, East Berkshire (2.8 mi west; kin surname of CCQ #108 & #153). Just 1 mile further in Berkshire, Aaron & Emily Lefebvre own 5 acres at 330 Cioffoletti Rd (matching CCQ #43 Bryan Lefebvre / HOMER\'s friend "Brian").'
+      },
+      {
+        title: '5. Mountain Rd & Lutz Rd, Montgomery (3.9 to 4.0 mi East · West Island QC)',
+        badge: 'Kirkland, Dorval & Pincourt QC · 145+ Acres on Jay Peak Road',
+        color: 'blue-top',
+        lat: 44.88561, lon: -72.58802, zoom: 13,
+        summary: 'On Sunday, March 21 at 1:03 pm (t=101929), GuyMR2 ("Andrew", connected to the Pointe-Claire/Kirkland West Island circle) posted that his friend\'s Acura 1.7 EL "got trashed. whole front... bumper / radiator / lights / hood." VCGI records show 145+ acres on Mountain Rd, Lutz Rd & Kunert Dr in Montgomery mailed directly to Kirkland, Pincourt, and Dorval, QC.'
+      },
+      {
+        title: '6. Sheldon Rte 78 / Rte 105 & Enosburgh Corridor (Brianna\'s Hometown)',
+        badge: 'Sheldon & Enosburgh · Jetté, Bouchard (184 ac), Fortin & Couture',
+        color: 'blue-top',
+        lat: 44.90968, lon: -72.95303, zoom: 12,
+        summary: 'In Sheldon (where Brianna lived), Robert Jetté owns 584 VT Rte 78 & 4356 VT Rte 105—while simultaneously owning the 23-acre woodland on West Hill Rd in Montgomery and 80 acres in Enosburgh. Also in Sheldon: Norman & Stephanie Bouchard\'s 183.8-acre farm (497 Bouchard Rd), Douglas & Roy Fortin\'s parcels, and Caleb Couture\'s 8.6 acres (1044 Sweet Hollow Rd).'
+      }
+    ];
+
+    const P7_MATRIX = [
+      {
+        handle: 'Greencivic ("Rick", u=2371)',
+        thread: 'montrealracing t=102191 & t=102472',
+        when: 'Mon Mar 22 (16:27) & Tue Mar 23, 2004',
+        issue: 'WTB Silver Integra driver door ("Mon chum vient de se faire rentrer dedans... silver si possible") & urgent sale of \'97 Civic w/ Acura 1.6 EL trunk conversion ("Faut Vendre Live La")',
+        kin: 'Guillaume Blain (CCQ #80/#123, Cowansville/Farnham QC) & adjacent CCQ #78 Bernard Guertin',
+        count: 'BLAIN: 12 · GUERTIN: 30',
+        locs: '• Richford, VT: 140 Hardwood Hill Rd (178 ac & 1F dwl, Dale & Mary Guertin, 3.3 mi from scene)\n• Alburgh, VT: 8F Alburgh RV Resort (Fanny Blain & Denis Guerin, mailed to 952 Rue Armand-Daigle, Beloeil, QC)\n• Newport Town/City: 1381 Searles Rd (10.3 ac, Marie Guertin) & 79 Widgeon Dr (1.9 ac)',
+        lat: 44.95694, lon: -72.67601, zoom: 13
+      },
+      {
+        handle: 'Lemieux',
+        thread: 'montrealracing t=101738',
+        when: 'Sat Mar 20, 2004 @ 11:42 AM EST (+12.3 hr)',
+        issue: 'Urgent Saturday morning WTB front grill for \'92–\'95 Honda Civic ("cherche grille avant civic 92-95")',
+        kin: 'Pier-Luc Blais (CCQ #95, Civic Si 92)',
+        count: 'BLAIS: 67',
+        locs: '• Jay, VT: VT Route 242 (Sheds & 15.6 acres directly on Route 242 at Jay Peak, Roland G. Blais)\n• Jay, VT: 1255 North Jay Rd TH 3 (18.9 acres & home, Justin Girard & Dena M. Blais)\n• Westfield & Troy, VT: North Hill Rd (16.11 ac), 143 Kennison Rd (1.5 ac), 1641 VT Rte 105W (4.2 ac), 172 Blais Rd (10.02 ac)\n• Isle La Motte, VT: 176 Lakehurst Campground (Louis Blais, mailed to Laval, QC)',
+        lat: 44.94041, lon: -72.46514, zoom: 13
+      },
+      {
+        handle: 'yalpen islong ("Frank", u=7236 / CCQ u=1897)',
+        thread: 'montrealracing t=102771',
+        when: 'Wed Mar 24, 2004 @ 17:41 EST',
+        issue: 'Urgent WTB front bumper for \'96–\'98 Honda Civic ("besoin d\'un bumper avant de civic 96-98")',
+        kin: '"Frank" on CCQ = Frank Fortin (CCQ #160, \'91 HB) & François Léveillé (CCQ #46)',
+        count: 'FORTIN: 182 · LEVEILLE: 6',
+        locs: '• Montgomery, VT: 4160 West Hill Rd (23.1 acres & 1.5-story log dwelling, Susan Fortin, 4.9 mi from scene)\n• Jay, VT: 527 VT Route 242 (2.5 acres & house on VT-242, Abigail Drew & Heidi L. Fortin)\n• Troy & Berkshire, VT: 1775 VT Rte 105W (2.85 ac), 3660 & 3263 Reservoir Rd, Berkshire (15.54 ac)\n• Sheldon & Isle La Motte: 572 Rice Hill Rd (62.5 ac), 210 Boarding House St, Sheldon; 3 Lakehurst (Claudette Fortin, Napierville QC)',
+        lat: 44.83834, lon: -72.66097, zoom: 13
+      },
+      {
+        handle: 'LeiYa',
+        thread: 'montrealracing t=102117, t=102118 & t=102789',
+        when: 'Mon Mar 22 & Wed Mar 24, 2004',
+        issue: '"silver civic h/b 96-00 spotted" & Monday parts threads',
+        kin: 'Melany Bouchard (CCQ #149, CX 96) & Sylvain Bouchard (CCQ #6)',
+        count: 'BOUCHARD: 203',
+        locs: '• Jay, VT: 158 Shallowbrook Heights (80.55-acre Camp w/ Pond & Land, Nicholas & Anne Bouchard) + 503 Shallowbrook Rd (1.2 ac)\n• Richford, VT: 1325 Corliss Rd (10.5 acres & 1F dwelling, Christopher S. Bouchard)\n• Sheldon, VT: 497 Bouchard Rd (183.8-acre farm, Norman & Stephanie Bouchard)\n• Troy, Westfield & Franklin, VT: 16 parcels in Troy/Westfield (280+ ac on Rte 242, 100, 105) + 8 parcels in Franklin (444+ ac on Morses Line Rd)',
+        lat: 44.92934, lon: -72.47933, zoom: 13
+      },
+      {
+        handle: 'Slystone',
+        thread: 'montrealracing t=101772',
+        when: 'Sat Mar 20, 2004 @ 15:18 EST (+16 hr)',
+        issue: 'Saturday afternoon \'88–\'91 Civic / CRX Si parts post',
+        kin: 'Sylvain Perreault (CCQ #189, CRX Si 91, South Shore QC)',
+        count: 'PERREAULT / PERRAULT: 69',
+        locs: '• Jay, VT: 1860 VT Route 105 (Home & 1 acre on VT-105, Roger Perreault) + Tranquility Ln & Cross Rd, Jay (12.2 acres, Nicholas & Melissa Perrault)\n• Isle La Motte, VT: 98 Lakehurst Campground (Denis Perreault, mailed to 1500 Palerme #305, Brossard, QC) & 70 Lakehurst (Carol Perrault, Longueuil, QC)',
+        lat: 44.97287, lon: -72.45766, zoom: 13
+      },
+      {
+        handle: 'HOMER (u=1347, Boucherville QC) & friend "Brian" (u=11570) + bigguss_90 ("Oli")',
+        thread: 'montrealracing t=101701, t=102268, t=102274, t=102279 & t=102280',
+        when: 'Sat Mar 20 @ 02:00:01 AM ("je suis dans marde") & Mon Mar 22 (20:53–21:28)',
+        issue: 'Seeking BOTH complete front end (bumper, grill, driver light, driver fender) AND rear trunk lid + lights for "Brian"\'s 1997 Acura 1.6 EL; bigguss_90 stuck on slope at 2:00 AM Sat',
+        kin: 'CCQ "Brian" candidates: Bryan Lefebvre (CCQ #43) & Brian Di Croce (CCQ #15)',
+        count: 'LEFEBVRE: 108 · DICROCE: 2',
+        locs: '• Berkshire, VT: 330 Cioffoletti Rd (5.0 ac & dwl, Aaron & Emily Lefebvre, 3.9 mi from scene) & 6578 Berkshire Center Rd (1.5 ac)\n• Enosburgh, VT: 5137 Tyler Branch Rd (3.0 ac & dwl, Diane Lefebvre)\n• Troy & Franklin, VT: 316 Aaron Greenwood Rd, Troy (Camp & 3 acres, William & Elizabeth Lefebvre) & 159 Shore Rd, Franklin (Camp 136)',
+        lat: 44.93925, lon: -72.72570, zoom: 13
+      },
+      {
+        handle: 'GuyMR2 ("Andrew", u=6166) & West Island Circle ("Chris" / "Rod")',
+        thread: 'montrealracing t=101929',
+        when: 'Sun Mar 21, 2004 @ 13:03 EST (+37.5 hr)',
+        issue: '"my friends 1.7 [Acura 1.7 EL] got trashed. whole front... bumper / radiator / lights / hood etc... at acua dealership and will be inspected monday."',
+        kin: 'West Island Montreal (Pointe-Claire / Kirkland / Dorval QC); CCQ #52 Andrew Nasso',
+        count: '12 West Island QC Parcels in Montgomery & Jay',
+        locs: '• Montgomery, VT: Mountain Rd (10.1 ac woodland) & Lutz Rd (94.5 ac & 2.0s dwl) mailed to 7 Rue Stoneman, Kirkland, QC\n• Montgomery, VT: 1255 Mountain Rd (11.1 ac & 2.0s dwl, mailed to 104 MacDonald, Kirkland, QC) & 3192/3274 Mountain Rd (22.76 ac, Dorval, QC)\n• Jay, VT: 243, 266 & 764 Shallowbrook Rd / VT-242 (4 properties mailed to Pointe-Claire, QC)',
+        lat: 44.88682, lon: -72.58473, zoom: 13
+      },
+      {
+        handle: 'DomR',
+        thread: 'montrealracing t=101686',
+        when: 'Sat Mar 20, 2004 @ 12:06 AM EST (46 min after clock-out)',
+        issue: 'Posting Civic taillights at 12:06 AM Saturday morning',
+        kin: 'Dominic Clouatre (CCQ #142, Si 95, St-Jean-sur-Richelieu / Farnham / Bedford QC)',
+        count: 'CLOUATRE: 4 (+ St-Jean QC Border Lot)',
+        locs: '• St. Albans / Franklin County, VT: Documented ancestral kin (Auzilda Clouatre Remillard / Olivette Champagne, motel/gas station owners)\n• Berkshire, VT: 1357 Berry Rd (2.0 ac right on the border, mailed to 160 Boul St-Luc, St-Jean-sur-Richelieu, QC)\n• Danville, Brookfield & St. Johnsbury, VT: 4 current Clouatre parcels',
+        lat: 45.00537, lon: -72.70265, zoom: 12
+      },
+      {
+        handle: 'L0G1K',
+        thread: 'montrealracing t=102003',
+        when: 'Sun Mar 21, 2004 @ 18:10 EST',
+        issue: 'Sunday evening 1998 Civic Si post',
+        kin: 'Frederic Lemire (CCQ #186, Si 98)',
+        count: 'LEMIRE: 43',
+        locs: '• Swanton, VT: 10 & 30 Maple Ridge Est (45.39 acres & home, Ronald & Carla Lemire), 98 St Albans Rd (1.5 ac), and 5 Ferris St (Jordin & Emily Lemire)',
+        lat: 44.90571, lon: -73.07535, zoom: 12
+      },
+      {
+        handle: 'CCQ Kinship Roster (Jetté #57, Robitaille #108/#153, Couture #31/#190, Ferland #9/#146)',
+        thread: 'CCQ_Members_LST.pdf Cross-Border Kinship Network',
+        when: 'Active March 2004 CCQ Roster',
+        issue: 'Direct cross-border family network linking Sheldon, Montgomery, East Berkshire, Richford, and Westfield',
+        kin: 'Maxime Jetté (#57), Pascal & Stéphan Robitaille (#108/#153), Sébastien & Eric Couture (#31/#190), Marc-André & Patrick Ferland (#9/#146)',
+        count: 'JETTE: 30 · ROBITAILLE: 26 · COUTURE: 198 · FERLAND: 49',
+        locs: '• Montgomery, VT: West Hill Rd (23 acres woodland owned by Robert Jetté of 584 Rte 78, Sheldon!) & 1268 North Main St (26.22 ac, Jacques Robitaille)\n• East Berkshire, VT: 281 Montgomery Rd (65.34 ac on VT-118, Paul & Travis Robitaille) & 1088 Ayers Hill Rd (320 ac, Michael & Sean Couture)\n• Westfield, VT: 1257 Sniderbrook Rd (21.9 ac, Gisele Couture, mailed to Ville Mont-Royal, Montreal, QC) + 380 ac on VT-100',
+        lat: 44.89016, lon: -72.66607, zoom: 13
+      }
+    ];
+
+    function initPage7Map() {
+      const el = document.getElementById('p7-parcel-map');
+      if (!el) return;
+      if (!p7Map) {
+        p7Map = L.map('p7-parcel-map', { center: [44.915, -72.630], zoom: 11 });
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; OpenStreetMap · VCGI Standardized Grand List Parcels (WGS84) · VAST Trail Network'
+        }).addTo(p7Map);
+        p7MarkerGroup = L.layerGroup().addTo(p7Map);
+      }
+
+      // Add VAST Snowmobile Trails if BUNDLE is loaded and not yet added
+      if (BUNDLE && BUNDLE.overlays && BUNDLE.overlays.snowmobile && !p7Map._vastAdded) {
+        p7Map._vastAdded = true;
+        L.geoJSON(BUNDLE.overlays.snowmobile, {
+          style: (feat) => {
+            const c = (feat.properties && feat.properties.corridor) || '';
+            const is120F = String(c).includes('120');
+            return {
+              color: '#179b6b',
+              weight: is120F ? 4.0 : 2.2,
+              opacity: is120F ? 0.9 : 0.55,
+              dashArray: is120F ? null : '5,4'
+            };
+          },
+          onEachFeature: (feat, layer) => {
+            const p = feat.properties || {};
+            layer.bindPopup(`
+              <div style="font-size:12px">
+                <strong>VAST Snowmobile Trail ${esc(p.corridor || '')}</strong><br/>
+                Club: <strong>${esc(p.club || 'Franklin/Orleans VAST')}</strong> (${esc(p.club_town || 'VT')})<br/>
+                Distance to Dutchburn scene: ${esc(p.nearest_km_to_house || '?')} km
+              </div>
+            `);
+          }
+        }).addTo(p7Map);
+      }
+
+      renderP7MapMarkers();
+    }
+
+    function renderP7MapMarkers() {
+      if (!p7Map || !p7MarkerGroup) return;
+      p7MarkerGroup.clearLayers();
+
+      const dutchburnLL = [44.9102, -72.6584];
+
+      // Dashed tactical vectors from Dutchburn house to the primary nearby stash clusters
+      const tacticalTargets = [
+        { ll: [44.89016, -72.66607], col: '#e09600', lbl: '1.4 mi S to West Hill Rd Woodland (Jetté / QC Camps)' },
+        { ll: [44.83834, -72.66097], col: '#e09600', lbl: '4.9 mi S to 4160 West Hill Rd Log Home (Susan Fortin)' },
+        { ll: [44.95694, -72.67601], col: '#e09600', lbl: '3.3 mi N to 140 Hardwood Hill Rd (178 ac, Guertin)' },
+        { ll: [44.94041, -72.46514], col: '#e09600', lbl: '9.7 mi E to VT Route 242 Sheds & Land (15.6 ac, Blais) & Shallowbrook Camp (80.5 ac, Bouchard)' },
+        { ll: [44.89753, -72.62805], col: '#246bce', lbl: '1.7 mi E to 1268 North Main St (26.2 ac, Robitaille)' },
+        { ll: [44.93029, -72.70929], col: '#246bce', lbl: '2.8 mi W to 281 Montgomery Rd (65.3 ac, Robitaille)' }
+      ];
+      tacticalTargets.forEach(t => {
+        L.polyline([dutchburnLL, t.ll], {
+          color: t.col, weight: 2, opacity: 0.65, dashArray: '6,5'
+        }).addTo(p7MarkerGroup);
+      });
+
+      // Case Anchor Markers
+      const anchors = [
+        { ll: [44.9102, -72.6584], title: '★ DUTCHBURN FARMHOUSE SCENE (VT-118)', desc: 'Site of the ~23:26–23:30 fender-bender, reverse into the west gable, and abduction. Less than 1.4 miles from West Hill Rd (Montgomery) and 3.3 miles from Hardwood Hill Rd (Richford).' },
+        { ll: [44.9008, -72.6401], title: '🛷 BLACK LANTERN INN (VT-118 & VAST 120F)', desc: 'Brianna clocked out at 23:20 EST. Terminus of VAST Feeder Trail 120F.' },
+        { ll: [44.9240, -72.5040], title: '⛷️ JAY PEAK RESORT', desc: 'Origin of the Friday night bar tab (CAD at par) and ski instructor Andrea\'s jacket.' }
+      ];
+      anchors.forEach(a => {
+        L.circleMarker(a.ll, {
+          radius: 9, fillColor: '#b3261e', color: '#ffffff', weight: 2.5, fillOpacity: 1.0
+        }).addTo(p7MarkerGroup).bindPopup(`<div style="font-size:12.5px"><strong style="color:#b3261e">${a.title}</strong><p style="margin:4px 0 0">${a.desc}</p></div>`);
+      });
+
+      // Parcel Markers
+      const items = p7ActiveFilter === 'all'
+        ? P7_PARCELS
+        : P7_PARCELS.filter(p => p.cat === p7ActiveFilter);
+
+      const catColor = {
+        forum: '#e09600',
+        ccq:   '#246bce',
+        qc:    '#5e4cc9'
+      };
+      const catBadge = {
+        forum: 'DIRECT FORUM CAR-ISSUE KIN',
+        ccq:   'CCQ CLUB KIN NETWORK',
+        qc:    'QUEBEC-MAILED STASH / CAMP PARCEL'
+      };
+
+      items.forEach(p => {
+        const radius = Math.max(6.5, Math.min(14, 5.5 + Math.sqrt(p.acres || 1) * 0.55));
+        const col = catColor[p.cat] || '#e09600';
+        const marker = L.circleMarker([p.lat, p.lon], {
+          radius,
+          fillColor: col,
+          color: '#ffffff',
+          weight: 2,
+          fillOpacity: 0.92
+        }).addTo(p7MarkerGroup);
+
+        marker.bindPopup(`
+          <div style="font-size:12px;line-height:1.45;min-width:240px">
+            <div style="font:700 10px monospace;color:${col};text-transform:uppercase;margin-bottom:2px">${esc(catBadge[p.cat])} · ${p.mi} MI FROM SCENE</div>
+            <strong style="font-size:13.5px">${esc(p.town.toUpperCase())}: ${esc(p.e911)}</strong><br/>
+            <span style="color:#3e4850"><strong>VCGI Owner:</strong> ${esc(p.owner)}</span><br/>
+            <span style="color:#3e4850"><strong>Parcel Type &amp; Size:</strong> ${esc(p.desc)} (<strong>${p.acres} acres</strong>)</span><br/>
+            <span style="color:#3e4850"><strong>Tax Mailing Address:</strong> ${esc(p.mail)}</span>
+            <hr style="border:none;border-top:1px solid #d6dedf;margin:6px 0"/>
+            <strong>Forum Connection:</strong> ${esc(p.forum)}<br/>
+            <span style="font-family:monospace;font-size:11px;color:#9e5800">${esc(p.post)}</span>
+            <p style="margin:5px 0 0;color:#14191c">${esc(p.note)}</p>
+          </div>
+        `);
+      });
+    }
+
+    function filterP7Map(mode) {
+      p7ActiveFilter = mode;
+      ['all', 'forum', 'ccq', 'qc'].forEach(k => {
+        const b = document.getElementById('p7-chip-' + k);
+        if (b) b.classList.toggle('active', k === mode);
+      });
+      if (!p7Map) initPage7Map();
+      else renderP7MapMarkers();
+    }
+
+    function p7FlyTo(ll, z) {
+      if (!p7Map) initPage7Map();
+      if (p7Map) {
+        p7Map.flyTo(ll, z || 13, { duration: 0.85 });
+        const mapEl = document.getElementById('p7-parcel-map');
+        if (mapEl) mapEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+
+    function initPage7Visuals() {
+      // 1. Render Cluster Cards
+      const cardsEl = document.getElementById('p7-cluster-cards');
+      if (cardsEl) {
+        cardsEl.innerHTML = P7_CLUSTERS.map(c => `
+          <div class="card ${c.color}" style="cursor:pointer" onclick="p7FlyTo([${c.lat}, ${c.lon}], ${c.zoom})">
+            <div class="eyebrow">${esc(c.badge)}</div>
+            <h3>${esc(c.title)}</h3>
+            <p>${esc(c.summary)}</p>
+            <div class="mono" style="font-size:.78rem;color:var(--accent);margin-top:.5rem">▶ Click to zoom map to this cluster</div>
+          </div>
+        `).join('');
+      }
+
+      // 2. Render Master Matrix Table
+      const tbody = document.getElementById('p7-matrix-tbody');
+      if (tbody) {
+        tbody.innerHTML = P7_MATRIX.map(r => `
+          <tr>
+            <td>
+              <strong>${esc(r.handle)}</strong><br/>
+              <span class="mono" style="font-size:.76rem;color:var(--accent)">${esc(r.thread)}</span>
+            </td>
+            <td>
+              <div class="mono" style="font-size:.76rem;color:var(--ink)"><strong>${esc(r.when)}</strong></div>
+              <div style="font-size:.83rem;color:var(--ink-2);margin-top:.2rem">${esc(r.issue)}</div>
+            </td>
+            <td style="font-size:.84rem"><strong>${esc(r.kin)}</strong></td>
+            <td class="mono" style="font-size:.78rem;white-space:nowrap"><strong>${esc(r.count)}</strong></td>
+            <td style="font-size:.82rem;white-space:pre-line;line-height:1.45">${esc(r.locs)}</td>
+            <td>
+              <button class="btn" onclick="p7FlyTo([${r.lat}, ${r.lon}], ${r.zoom})">Zoom Map ↗</button>
+            </td>
+          </tr>
+        `).join('');
+      }
+
+      // 3. Render D3 Proximity vs. Acreage Chart (#p7-proximity-svg)
+      const svgPx = d3.select('#p7-proximity-svg');
+      if (svgPx.empty()) return;
+      svgPx.selectAll('*').remove();
+
+      const ink = css('--ink'), ink2 = css('--ink-2'), muted = css('--muted'), rule = css('--rule');
+      const amber = css('--amber'), s1 = css('--s1'), s3 = css('--s3'), crit = css('--crit'), s7 = css('--s7'), surface = css('--surface');
+
+      const xPx = d3.scaleLinear().domain([0, 15.5]).range([68, 920]);
+      const yPx = d3.scaleLog().domain([0.4, 250]).range([258, 28]);
+
+      // Background 0–5 mile "Immediate 8-Minute Escape Zone" highlight
+      svgPx.append('rect')
+        .attr('x', xPx(0)).attr('y', 18)
+        .attr('width', xPx(5.0) - xPx(0)).attr('height', 246)
+        .attr('fill', css('--amber-soft')).attr('fill-opacity', 0.45)
+        .attr('stroke', amber).attr('stroke-dasharray', '4,3');
+
+      svgPx.append('text')
+        .attr('x', (xPx(0) + xPx(5.0)) / 2).attr('y', 34).attr('text-anchor', 'middle')
+        .style('font', '700 10.5px var(--f-mono)').style('fill', css('--accent'))
+        .text('IMMEDIATE 0–5 MILE REFUGE ZONE (< 6 MIN DRIVE FROM DUTCHBURN HOUSE)');
+
+      // Axes
+      svgPx.append('line').attr('x1', 68).attr('y1', 258).attr('x2', 920).attr('y2', 258).attr('stroke', rule).attr('stroke-width', 1.5);
+      svgPx.append('line').attr('x1', 68).attr('y1', 18).attr('x2', 68).attr('y2', 258).attr('stroke', rule).attr('stroke-width', 1.5);
+
+      [0, 2, 4, 6, 8, 10, 12, 14].forEach(m => {
+        svgPx.append('line').attr('x1', xPx(m)).attr('y1', 258).attr('x2', xPx(m)).attr('y2', 264).attr('stroke', muted);
+        svgPx.append('text').attr('x', xPx(m)).attr('y', 278).attr('text-anchor', 'middle')
+          .style('font', '500 10.5px var(--f-mono)').style('fill', muted).text(m + ' mi');
+      });
+
+      [1, 5, 20, 100].forEach(ac => {
+        svgPx.append('line').attr('x1', 62).attr('y1', yPx(ac)).attr('x2', 920).attr('y2', yPx(ac))
+          .attr('stroke', rule).attr('stroke-dasharray', '2,3');
+        svgPx.append('text').attr('x', 58).attr('y', yPx(ac) + 4).attr('text-anchor', 'end')
+          .style('font', '500 10.5px var(--f-mono)').style('fill', muted).text(ac + ' ac');
+      });
+
+      svgPx.append('text').attr('x', 494).attr('y', 304).attr('text-anchor', 'middle')
+        .style('font', '600 11.5px var(--f-body)').style('fill', ink2)
+        .text('Straight-Line Distance from Dutchburn Farmhouse on VT-118 (miles)');
+
+      const plotItems = P7_PARCELS.filter(p => p.mi <= 15.0);
+      const colMap = { forum: amber, ccq: s1, qc: s7 };
+
+      plotItems.forEach(p => {
+        const cx = xPx(p.mi);
+        const cy = yPx(Math.max(0.45, Math.min(220, p.acres)));
+        const r = Math.max(6, Math.min(15, 5 + Math.sqrt(p.acres) * 0.55));
+        const g = svgPx.append('g')
+          .attr('transform', `translate(${cx}, ${cy})`)
+          .style('cursor', 'pointer')
+          .on('click', () => p7FlyTo([p.lat, p.lon], 13));
+
+        g.append('circle')
+          .attr('r', r)
+          .attr('fill', colMap[p.cat] || amber)
+          .attr('fill-opacity', 0.85)
+          .attr('stroke', surface)
+          .attr('stroke-width', 2);
+
+        const shortLabel = `${p.owner.split(' ')[0]} (${p.town}, ${p.acres} ac)`;
+        g.append('text')
+          .attr('x', p.mi > 11.5 ? -(r + 5) : (r + 5))
+          .attr('y', 4)
+          .attr('text-anchor', p.mi > 11.5 ? 'end' : 'start')
+          .style('font', '600 10px var(--f-body)')
+          .style('fill', ink)
+          .text(shortLabel);
+      });
+    }
+
+    // -------------------------------------------------------------------------
     // BOOTSTRAP
     // -------------------------------------------------------------------------
     function runAllInitializers() {
-      [initPage1Visuals, initPage2Visuals, initPage3Visuals, initPage4Network, initPage5Visuals, initPage6Visuals].forEach(fn => {
+      [initPage1Visuals, initPage2Visuals, initPage3Visuals, initPage4Network, initPage5Visuals, initPage6Visuals, initPage7Visuals].forEach(fn => {
         try { fn(); } catch (err) { console.error('Error in initializer:', fn.name, err); }
       });
     }
@@ -3767,6 +4404,7 @@
     try { initPage4Network(); } catch (e) {}
     try { renderNightWorldCharts(); } catch (e) {}
     try { initPage6Visuals(); } catch (e) {}
+    try { initPage7Visuals(); } catch (e) {}
 
     fetch('atlas_bundle.json')
       .then(res => res.json())
