@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 260" width="420" height="260">
+  <rect width="420" height="260" rx="8" fill="#181614"/>
+  <rect x="6" y="6" width="408" height="248" rx="6" fill="#211e1a" stroke="#d97706" stroke-width="2"/>
+  <rect x="6" y="6" width="408" height="32" rx="5" fill="#d97706"/>
+  <text x="18" y="27" font-family="monospace" font-size="11.5" font-weight="bold" fill="#ffffff">LOWLIFE 08 · FEB 27 ASSAULT · VSP / COURT RECORD DOSSIER</text>
+  <!-- Silhouette Avatar -->
+  <rect x="20" y="52" width="96" height="116" rx="6" fill="#141210" stroke="#45413b" stroke-width="1.5"/>
+  <circle cx="68" cy="92" r="22" fill="#3a352f"/>
+  <path d="M 34 156 C 34 124, 102 124, 102 156 Z" fill="#3a352f"/>
+  <text x="68" y="183" text-anchor="middle" font-family="monospace" font-size="8.5" fill="#a0998c">2004 BOOKING PHOTO</text>
+  <text x="68" y="194" text-anchor="middle" font-family="monospace" font-size="8.5" fill="#d97706">SEALED / UNRELEASED</text>
+  <!-- Identity Details -->
+  <text x="130" y="74" font-family="sans-serif" font-size="19" font-weight="bold" fill="#f5f2eb">KEALLIE M. LACROSS</text>
+  <text x="130" y="95" font-family="monospace" font-size="9.5" fill="#d97706">Age 18 (2004) · Enosburg Falls High School Class of 2004</text>
+  <line x1="130" y1="106" x2="398" y2="106" stroke="#3a352f" stroke-width="1"/>
+  <text x="130" y="126" font-family="sans-serif" font-size="10.2" fill="#e5e0d5">Indicted Tue 16 Mar 2004 (−72h before crash) · C</text>
+  <text x="130" y="142" font-family="sans-serif" font-size="10.2" fill="#e5e0d5">harges Dropped 8 Apr 2004</text>
+  <rect x="18" y="206" width="384" height="36" rx="4" fill="#141210" stroke="#3a352f"/>
+  <text x="28" y="228" font-family="monospace" font-size="9.2" fill="#f59e0b">Spring 2004 Messenger WB: EFHS Senior Group w/ Sean & Matt Stebbins</text>
+</svg>
